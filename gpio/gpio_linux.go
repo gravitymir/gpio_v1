@@ -224,7 +224,11 @@ func (p *pin) Get() bool {
 // the edge provided
 
 func (p *pin) BeginWatch(edge Edge, callback IRQEvent) error {
-	p.SetMode(ModeInput)
+	if p.GetMode() != ModeInput {
+		fmt.Printf("Error BeginWatch: pin input mode is not \"IN\" %+v", p)
+		panic("Error BeginWatch: pin input mode is not correct")
+	}
+	//p.SetMode(ModeInput)
 	if err := write([]byte(edge), p.edgePath); err != nil {
 		return err
 	}
