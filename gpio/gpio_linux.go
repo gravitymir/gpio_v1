@@ -185,6 +185,7 @@ func (p *pin) SetMode(mode Mode) {
 	p.err = p.setMode(mode)
 }
 
+// GetMode gets the mode of the pin.
 func (p *pin) GetMode() Mode {
 	currentMode, _ := read(p.modePath)
 	currentMode_ := strings.Trim(string(currentMode), "\n ")
@@ -222,10 +223,12 @@ func (p *pin) Get() bool {
 
 func (p *pin) BeginWatch(edge Edge, callback IRQEvent) error {
 	if p.GetMode() != ModeInput {
-		fmt.Printf("Error BeginWatch: pin input mode is not \"IN\" %+v", p)
-		panic("Error BeginWatch: pin input mode is not correct")
+		//implicit conversion
+		//p.SetMode(ModeInput) //uncomment for are work without panic
+		//panic string comment
+		panic("Error BeginWatch: pin input mode is not correct, pin mode is \"OUT\"")
 	}
-	//p.SetMode(ModeInput)
+
 	if err := write([]byte(edge), p.edgePath); err != nil {
 		return err
 	}
