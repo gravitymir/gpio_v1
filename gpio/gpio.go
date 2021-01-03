@@ -6,15 +6,9 @@ type Mode string
 const (
 	ModeInput  Mode = "in"
 	ModeOutput Mode = "out"
-	ModePWM         = "pwm"
+	ModePWM    Mode = "pwm"
 )
 
-// Edge represents the edge on which a pin interrupt is triggered
-// Edge represents the edge on which a pin interrupt is triggered
-// Edge represents the edge on which a pin interrupt is triggered
-// Edge represents the edge on which a pin interrupt is triggered
-// Edge represents the edge on which a pin interrupt is triggered
-// Edge represents the edge on which a pin interrupt is triggered
 type Edge string
 
 const (

@@ -11,25 +11,49 @@ import (
 
 //By default, pins 14 and 15 boot to UART mode, so they are going to be ignored for now.
 //We can add them in later as necessary.
-
+//Pins map UPBoard and RaspberyPi? convert to Linux numbers
 const (
-	GPIO0     = 0
-	GPIO1     = 1
-	GPIO2     = 2
-	GPIO3     = 3
-	GPIO4     = 4
-	GPIO7     = 7
-	GPIO8     = 8
-	GPIO9     = 9
-	GPIO10    = 10
-	GPIO11    = 11
-	GPIO17    = 17
-	GPIO18    = 18
-	GPIO22    = 22
-	GPIO23    = 23
-	GPIO24    = 24
-	GPIO25    = 25
-	GPIOCount = 16 // the number of GPIO pins available
+	PIN_1     = "3.3V"
+	PIN_2     = "5.0V"
+	PIN_3     = 2
+	PIN_4     = "5.0V"
+	PIN_5     = 3
+	PIN_6     = "Ground"
+	PIN_7     = 4
+	PIN_8     = 14
+	PIN_9     = "Ground"
+	PIN_10    = 15
+	PIN_11    = 17
+	PIN_12    = 18
+	PIN_13    = 27
+	PIN_14    = "Ground"
+	PIN_15    = 22
+	PIN_16    = 23
+	PIN_17    = "3.3V"
+	PIN_18    = 24
+	PIN_19    = 10
+	PIN_20    = "Ground"
+	PIN_21    = 9
+	PIN_22    = 25
+	PIN_23    = 11
+	PIN_24    = 8
+	PIN_25    = "Ground"
+	PIN_26    = 7
+	PIN_27    = 0
+	PIN_28    = 1
+	PIN_29    = 5
+	PIN_30    = "Ground"
+	PIN_31    = 6
+	PIN_32    = 12
+	PIN_33    = 13
+	PIN_34    = "Ground"
+	PIN_35    = 19
+	PIN_36    = 16
+	PIN_37    = 26
+	PIN_38    = 20
+	PIN_39    = "Ground"
+	PIN_40    = 21
+	GPIOCount = 28
 )
 
 const (
