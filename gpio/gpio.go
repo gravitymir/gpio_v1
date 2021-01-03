@@ -10,6 +10,7 @@ const (
 )
 
 // Edge represents the edge on which a pin interrupt is triggered
+// Edge represents the edge on which a pin interrupt is triggered
 type Edge string
 
 const (
