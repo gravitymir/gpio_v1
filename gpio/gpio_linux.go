@@ -54,12 +54,10 @@ const (
 	PIN_39    = "Ground"
 	PIN_40    = 21
 	GPIOCount = 28
-)
 
-const (
 	gpiobase     = "/sys/class/gpio"
-	exportPath   = "/sys/class/gpio/export"
-	unexportPath = "/sys/class/gpio/unexport"
+	exportPath   = gpiobase + "/export"
+	unexportPath = gpiobase + "/unexport"
 )
 
 var (
@@ -95,7 +93,7 @@ func setupEpoll() {
 		for {
 			numEvents, err := syscall.EpollWait(epollFD, epollEvents[:], -1)
 			if err != nil {
-				if err == syscall.EAGAIN {
+				if err == syscall.EINTR || err == syscall.EAGAIN {
 					continue
 				}
 				panic(fmt.Sprintf("EpollWait error: %v", err))
@@ -112,7 +110,6 @@ func setupEpoll() {
 		}
 
 	}()
-
 }
 
 // pin represents a GPIO pin.
